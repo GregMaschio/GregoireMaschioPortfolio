@@ -1,0 +1,84 @@
+/*
+
+Css pour le Header
+
+*/
+
+header {
+    background-color:#1d1d1d;
+    height: 100vh;
+    width:100vw;
+}
+
+header h4 {
+    font-family: 'Consolas';
+    margin:0;
+    font-size:1.05em;
+    color : #323232;
+    padding-top : 1.2em;
+    padding-left:0.8em;
+}
+
+.deuxiemelignecode{
+    padding-top:0.4em;
+    text-indent: 1.6em;
+}
+
+.accueilmid {
+    display:flex;
+    width:100vw;
+    height:90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.accueilmid h4 {
+    padding:0;
+}
+
+.accueilmid h1 {
+    color:white;
+    font-size: 2em;
+}
+
+.accueilmid h1:first-of-type{
+    font-weight: 200;
+}
+
+.accueilmid h4{
+    margin-right:0.6em;
+}
+
+.accueilmid h4:last-of-type{
+    margin-left:0.6em;
+}
+
+// .conteneurSvg{
+//     position: absolute;
+//     bottom:-10px;
+//     left:0;
+//     width: 100%;
+//     z-index: 3;
+//     height:10vh;
+// }
+
+// svg{
+//     height:100%;
+//     width: 100%;
+//     color:white;
+// }
+
+@media screen and (min-width: 600px) {
+    .accueilmid h1 {
+        font-size:3em;
+    }
+
+    .accueilmid h4 {
+        font-size:em;
+    }
+
+    header>.deuxiemelignecode{
+        margin:0;
+    }
+  }
+  

@@ -1,0 +1,126 @@
+/*
+
+Css pour le main
+
+*/
+
+footer {
+    height:100vh;
+    background-color: #1d1d1d;
+    display:flex;
+    flex-direction: column;
+}
+
+.footertitre {
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer h1 {
+    color:white;
+    font-size:3.5em;
+}
+
+footer h4 {
+    font-family: 'Consolas';
+    margin:0 1em;
+    font-size: 1.05em;
+    color: #323232;
+}
+
+#Projets {
+    display: flex;
+    flex-direction: column;
+    height:50vh;
+    overflow: hidden;
+}
+
+.projet-conteneur{
+    display:flex;
+    flex-direction: row;
+}
+
+.projet-conteneur img {
+    width:1em;
+}
+
+.projet-conteneur p, .projet-conteneur img {
+    color:white;
+    flex-grow: 1;
+    flex-basis:0;
+}
+
+.projet-conteneur p {
+    font-weight: 300;
+    font-size:0.9em;
+    text-align: center;
+}
+
+footer input {
+  width: 12em;
+  background-color: black;
+  height: 2.5em;
+  color: #8f8f8f;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  border:none;
+  margin: 0 auto;
+  margin-bottom: 6em;
+}
+
+.bas-footer{
+    background-color:black;
+    color:rgb(99, 99, 99);
+    height:5vh;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 3;
+}
+
+
+@media screen and (min-width: 600px) {
+    #Projets{
+        height:90%;
+        background-color: #101010;
+        display:flex;
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        width:100vw;
+        
+    }
+
+    .projet-conteneur{
+        pointer-events: none;
+        flex: 0 0 auto;
+        width: 100vw;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .projet-conteneur img{
+        flex-grow:1;
+        width:55%;
+    }
+
+    .projet-conteneur p {
+        flex-grow: 2;
+        padding:0 10em 0 10em;
+        align-self: center;
+    }
+
+    footer input{
+        display:none;
+    }
+
+    .deuxiemelignecode {
+        margin-top:3em;
+    }
+
+}

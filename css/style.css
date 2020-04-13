@@ -1,0 +1,607 @@
+@charset "UTF-8";
+/*!
+Auteur: Grégoire Maschio
+Description: Portfolio
+Version: 1.0.0
+*/
+/*--------------------------------------------------------------
+>>> LISTE DES FICHIERS SCSS IMPORTÉS 
+----------------------------------------------------------------
+# Variables
+# General
+# Header
+# Menu
+# À propos
+# Projets
+----------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+/* ------------------------------------------------------------
+# General 
+--------------------------------------------------------------*/
+body {
+  font-family: 'Lato';
+  overflow-x: hidden;
+}
+
+li, a {
+  font-weight: 900;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+# Header 
+--------------------------------------------------------------*/
+/*
+
+Css pour le Header
+
+*/
+header {
+  background-color: #1d1d1d;
+  height: 100vh;
+  width: 100vw;
+}
+
+header h4 {
+  font-family: 'Consolas';
+  margin: 0;
+  font-size: 1.05em;
+  color: #323232;
+  padding-top: 1.2em;
+  padding-left: 0.8em;
+}
+
+.deuxiemelignecode {
+  padding-top: 0.4em;
+  text-indent: 1.6em;
+}
+
+.accueilmid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.accueilmid h4 {
+  padding: 0;
+}
+
+.accueilmid h1 {
+  color: white;
+  font-size: 2em;
+}
+
+.accueilmid h1:first-of-type {
+  font-weight: 200;
+}
+
+.accueilmid h4 {
+  margin-right: 0.6em;
+}
+
+.accueilmid h4:last-of-type {
+  margin-left: 0.6em;
+}
+
+@media screen and (min-width: 600px) {
+  .accueilmid h1 {
+    font-size: 3em;
+  }
+  .accueilmid h4 {
+    font-size: em;
+  }
+  header > .deuxiemelignecode {
+    margin: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+# Menu
+--------------------------------------------------------------*/
+/*
+
+Css pour le menu
+
+*/
+#btnMenu {
+  position: fixed;
+  right: 2em;
+  top: 2.3em;
+  z-index: 999;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#btnMenu span {
+  height: 4px;
+  width: 35px;
+  background-color: white;
+  position: relative;
+  display: block;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+#btnMenu span:before {
+  top: -10px;
+  visibility: visible;
+}
+
+#btnMenu span:after {
+  top: 10px;
+}
+
+#btnMenu span:before, #btnMenu span:after {
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: white;
+  position: absolute;
+  content: "";
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+#btnMenu:hover span, #btnMenu:hover span:before, #btnMenu:hover span:after {
+  background: #333332;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]:checked ~ #overlay {
+  visibility: visible;
+}
+
+input[type=checkbox]:checked ~ #btnMenu:hover span, input[type=checkbox]:checked ~ #btnMenu span {
+  background: transparent;
+}
+
+input[type=checkbox]:checked ~ #btnMenu span:before {
+  -webkit-transform: rotate(45deg) translate(7px, 7px);
+          transform: rotate(45deg) translate(7px, 7px);
+  opacity: 1;
+}
+
+input[type=checkbox]:checked ~ #btnMenu span:after {
+  -webkit-transform: rotate(-45deg) translate(7px, -7px);
+          transform: rotate(-45deg) translate(7px, -7px);
+}
+
+#overlay {
+  height: 100vh;
+  width: 100vw;
+  background: #ec6451;
+  z-index: 2;
+  visibility: hidden;
+  position: fixed;
+}
+
+#overlay.active {
+  visibility: visible;
+}
+
+#overlay ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+#overlay ul li {
+  padding: 1em;
+}
+
+#overlay ul li a {
+  color: white;
+  font-size: 1.5em;
+}
+
+#overlay ul li a:hover {
+  color: #333332;
+}
+
+.codeheader {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .codeheader {
+    display: block;
+    padding: 0;
+  }
+  #checkMenu, #btnMenu {
+    display: none;
+  }
+  #overlay {
+    visibility: visible;
+    background: transparent;
+    position: absolute;
+  }
+  #overlay ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    height: 7vh;
+    margin-right: 3em;
+  }
+  #overlay ul a {
+    font-weight: 500;
+    font-size: 1.3em !important;
+  }
+  #overlay ul li a:hover {
+    color: #ec6451;
+  }
+}
+
+/* ------------------------------------------------------------
+# À propos
+--------------------------------------------------------------*/
+/*
+
+Css pour le main
+
+*/
+main {
+  height: 100%;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+#Apropos h1 {
+  font-weight: 800;
+  margin-top: 2.5em;
+  margin-bottom: 0.3em;
+}
+
+#Apropos h3 {
+  font-size: 1.3em;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+#Apropos p {
+  text-align: justify;
+  line-height: 2.5em;
+  font-weight: 300;
+}
+
+.Competences {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.conteneur-comp-text {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.conteneur-progress-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.conteneur-progress-bar h4 {
+  font-size: 0.8em;
+  margin-bottom: 0.8em;
+  margin-top: 3.5em;
+}
+
+.firsth4comp {
+  margin-top: 1em !important;
+}
+
+.conteneur-progress-bar h5 {
+  font-size: 0.7em;
+  margin: 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding-bottom: 0.8em;
+}
+
+.progress-bar-holder {
+  width: 100%;
+  height: 0.4em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #1d1d1d;
+  width: 0px;
+  border-radius: 4px;
+}
+
+.progress-bar p {
+  display: none;
+}
+
+#CV {
+  width: 12em;
+  background-color: black;
+  height: 2.5em;
+  border-radius: 1em;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 3em;
+  border: none;
+}
+
+#Apropos img {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  #Apropos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 75vw;
+  }
+  #Apropos img {
+    display: block;
+    height: 10%;
+    width: 40%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-right: 5em;
+  }
+  .contenu-apropos-droite {
+    -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+  }
+  .contacts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .contacts input {
+    margin-top: 1em;
+    border: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Projets
+----------------------------------------------------------------*/
+/*
+
+Css pour le main
+
+*/
+footer {
+  height: 100vh;
+  background-color: #1d1d1d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footertitre {
+  height: 25vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer h1 {
+  color: white;
+  font-size: 3.5em;
+}
+
+footer h4 {
+  font-family: 'Consolas';
+  margin: 0 1em;
+  font-size: 1.05em;
+  color: #323232;
+}
+
+#Projets {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.projet-conteneur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.projet-conteneur img {
+  width: 1em;
+}
+
+.projet-conteneur p, .projet-conteneur img {
+  color: white;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+}
+
+.projet-conteneur p {
+  font-weight: 300;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+footer input {
+  width: 12em;
+  background-color: black;
+  height: 2.5em;
+  color: #8f8f8f;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin: 0 auto;
+  margin-bottom: 6em;
+}
+
+.bas-footer {
+  background-color: black;
+  color: #636363;
+  height: 5vh;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 3;
+}
+
+@media screen and (min-width: 600px) {
+  #Projets {
+    height: 90%;
+    background-color: #101010;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100vw;
+  }
+  .projet-conteneur {
+    pointer-events: none;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100vw;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .projet-conteneur img {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: 55%;
+  }
+  .projet-conteneur p {
+    -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+    padding: 0 10em 0 10em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  footer input {
+    display: none;
+  }
+  .deuxiemelignecode {
+    margin-top: 3em;
+  }
+}
+
+/*-------------------------------------------------------------- */
+/*# sourceMappingURL=style.css.map */
